@@ -1,357 +1,438 @@
-/**
- * RESPONSIVE.CSS - Common responsive styles for all pages
- * Contains: Navigation, footer, and general layout breakpoints for all iPhone models
- */
+/* ===== MAIN RESPONSIVE CSS - GLOBAL FIXES ===== */
+/* This file provides responsive overrides for ALL pages */
+/* Import this file LAST in your HTML to ensure it takes priority */
 
-/* ===== DESKTOP TO TABLET TRANSITION (1200px) ===== */
-@media screen and (max-width: 1200px) {
-  #desktop-nav {
-    display: none;
+/* ===== BASE RESPONSIVE SETTINGS ===== */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 15px;
   }
-  
-  #hamburger-nav {
-    display: flex;
-  }
-  
-  section {
-    margin: 0 5rem;
-  }
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== RESPONSIVE TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+p, a, span, li {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* ===== TABLET BREAKPOINT (1024px) ===== */
 @media screen and (max-width: 1024px) {
+  /* Sections */
   section {
-    margin: 0 4rem;
+    padding: 3rem 1.5rem !important;
   }
   
-  .title {
-    font-size: 2.5rem;
-  }
-  
-  .section__text__p1 {
-    font-size: 1.1rem;
-  }
-  
-  nav {
-    height: 15vh;
-    padding: 0 2rem;
-  }
-  
-  .arrow {
-    right: -3rem;
-  }
-}
-
-/* ===== LARGE PHONE / SMALL TABLET (768px) ===== */
-@media screen and (max-width: 768px) {
-  section {
-    margin: 0 2rem;
-    padding-top: 3vh;
-  }
-  
-  .title {
-    font-size: 2rem;
-  }
-  
-  .section__text__p1 {
-    font-size: 1rem;
-  }
-  
-  nav {
-    height: 13vh;
+  /* Containers */
+  .container {
+    max-width: 100%;
     padding: 0 1.5rem;
   }
   
-  .logo {
-    font-size: 1.5rem;
-  }
-  
-  .arrow {
-    display: none;
-  }
-  
-  footer {
-    padding: 2rem 1.5rem 2rem;
-    margin-top: 3rem;
-  }
-  
-  footer .nav-links {
-    font-size: 0.9rem;
-    gap: 0.8rem;
-  }
-  
-  footer .nav-links a {
-    padding: 0.4rem 0.8rem;
-  }
-  
-  .social-links {
-    gap: 1.5rem;
-  }
-  
-  .social-links a {
-    width: 45px;
-    height: 45px;
-    font-size: 1.8rem;
+  /* Grids */
+  .grid-2-col,
+  .grid-3-col,
+  .grid-4-col {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
-/* ===== iPHONE 14 PRO MAX, 14 PLUS (430px) ===== */
-@media screen and (max-width: 430px) {
+/* ===== MOBILE BREAKPOINT (768px) ===== */
+@media screen and (max-width: 768px) {
+  /* Sections */
   section {
-    margin: 0 1.5rem;
-    padding-top: 2vh;
-    min-height: 70vh;
+    padding: 2.5rem 1.25rem !important;
   }
   
-  .title {
-    font-size: 1.8rem;
+  /* Containers */
+  .container {
+    padding: 0 1.25rem;
   }
   
-  .section__text__p1 {
-    font-size: 0.95rem;
+  /* Single column grids */
+  .grid-2-col,
+  .grid-3-col,
+  .grid-4-col {
+    grid-template-columns: 1fr !important;
   }
   
-  nav {
-    height: 12vh;
-    padding: 0 1.2rem;
+  /* Flex containers stack */
+  .flex-row {
+    flex-direction: column !important;
   }
   
-  .logo {
-    font-size: 1.3rem;
+  /* Text alignment */
+  .text-center-mobile {
+    text-align: center !important;
   }
   
-  .hamburger-icon {
-    height: 20px;
-    width: 26px;
+  /* Full width buttons */
+  .btn-full-mobile {
+    width: 100% !important;
   }
   
-  .menu-links a {
-    font-size: 1.1rem;
-    padding: 0.9rem 1.8rem;
+  /* Hide desktop elements */
+  .desktop-only {
+    display: none !important;
   }
   
-  footer {
-    padding: 1.8rem 1.2rem 1.8rem;
-  }
-  
-  footer .nav-links-container {
-    margin-bottom: 1.2rem;
-  }
-  
-  footer .nav-links {
-    font-size: 0.85rem;
-    gap: 0.6rem;
-  }
-  
-  footer .nav-links a {
-    padding: 0.4rem 0.7rem;
-  }
-  
-  .social-links {
-    gap: 1.2rem;
-    margin: 1.2rem 0;
-  }
-  
-  .social-links a {
-    width: 42px;
-    height: 42px;
-    font-size: 1.6rem;
-  }
-  
-  footer p {
-    font-size: 0.85rem;
-    margin-top: 1.2rem;
+  /* Show mobile elements */
+  .mobile-only {
+    display: block !important;
   }
 }
 
-/* ===== iPHONE 14 PRO, 13 PRO, 12 PRO (393px) ===== */
-@media screen and (max-width: 393px) {
-  .title {
-    font-size: 1.7rem;
-  }
-  
-  nav {
-    padding: 0 1.1rem;
-  }
-  
-  .logo {
-    font-size: 1.25rem;
-  }
-}
-
-/* ===== iPHONE 14, 13, 12 (390px) ===== */
-@media screen and (max-width: 390px) {
+/* ===== SMALL MOBILE BREAKPOINT (480px) ===== */
+@media screen and (max-width: 480px) {
+  /* Sections */
   section {
-    margin: 0 1.3rem;
-  }
-}
-
-/* ===== iPHONE 13 MINI, 12 MINI (375px) ===== */
-@media screen and (max-width: 375px) {
-  section {
-    margin: 0 1rem;
+    padding: 2rem 1rem !important;
   }
   
-  .title {
-    font-size: 1.6rem;
-  }
-  
-  .section__text__p1 {
-    font-size: 0.9rem;
-  }
-  
-  nav {
-    height: 11vh;
+  /* Containers */
+  .container {
     padding: 0 1rem;
   }
   
-  .logo {
-    font-size: 1.2rem;
+  /* Reduce gaps */
+  .gap-large {
+    gap: 1.5rem !important;
   }
   
-  .hamburger-icon {
-    height: 18px;
-    width: 24px;
+  .gap-medium {
+    gap: 1rem !important;
   }
   
-  .menu-links a {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
+  .gap-small {
+    gap: 0.75rem !important;
   }
   
-  .theme-toggle-mobile {
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem;
+  /* Card padding */
+  .card {
+    padding: 1.5rem 1.25rem !important;
   }
   
-  footer {
-    padding: 1.5rem 1rem 1.5rem;
+  /* All buttons full width */
+  button,
+  .btn,
+  a.btn {
+    width: 100%;
+    text-align: center;
   }
   
-  footer .nav-links {
-    font-size: 0.8rem;
-    gap: 0.5rem;
+  /* Link buttons in button containers */
+  .btn-container {
+    flex-direction: column;
+    width: 100%;
   }
   
-  footer .nav-links a {
-    padding: 0.35rem 0.6rem;
-  }
-  
-  .social-links {
-    gap: 1rem;
-  }
-  
-  .social-links a {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-  }
-  
-  footer p {
-    font-size: 0.8rem;
-    margin-top: 1rem;
+  .btn-container a,
+  .btn-container button {
+    width: 100%;
   }
 }
 
-/* ===== iPHONE SE (3rd/2nd gen), 8, 7, 6s (375px) ===== */
-/* Same as above 375px breakpoint */
-
-/* ===== iPHONE SE (1st gen) (320px) ===== */
-@media screen and (max-width: 320px) {
+/* ===== EXTRA SMALL MOBILE (375px) ===== */
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 14px;
+  }
+  
   section {
-    margin: 0 0.8rem;
-    min-height: 65vh;
+    padding: 1.75rem 0.875rem !important;
   }
   
-  .title {
-    font-size: 1.4rem;
+  .container {
+    padding: 0 0.875rem;
+  }
+}
+
+/* ===== TINY SCREENS (360px) - Tecno Spark 10 ===== */
+@media screen and (max-width: 360px) {
+  section {
+    padding: 1.5rem 0.75rem !important;
   }
   
-  .section__text__p1 {
-    font-size: 0.85rem;
+  .container {
+    padding: 0 0.75rem;
   }
   
-  nav {
-    height: 10vh;
-    padding: 0 0.8rem;
+  /* Extra compact cards */
+  .card {
+    padding: 1.25rem 1rem !important;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE FIX ===== */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  /* Reduce vertical spacing in landscape */
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
   
-  .logo {
-    font-size: 1.1rem;
+  /* Adjust modals */
+  .modal-content,
+  .experience-modal-content {
+    max-height: 95vh !important;
+  }
+}
+
+/* ===== TOUCH TARGET SIZES (Accessibility) ===== */
+@media screen and (max-width: 768px) {
+  /* Minimum 44x44px touch targets */
+  a,
+  button,
+  input[type="button"],
+  input[type="submit"],
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.5rem;
   }
   
-  .hamburger-icon {
-    height: 16px;
-    width: 22px;
+  /* Icon buttons */
+  .icon-btn {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.5rem;
   }
   
+  /* Form inputs */
+  input,
+  textarea,
+  select {
+    min-height: 48px;
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+}
+
+/* ===== PREVENT HORIZONTAL SCROLL ===== */
+body,
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+* {
+  max-width: 100%;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== TABLE RESPONSIVE ===== */
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===== MODAL Z-INDEX FIX ===== */
+.modal,
+.experience-modal {
+  z-index: 9999 !important;
+}
+
+.modal-content,
+.experience-modal-content {
+  z-index: 10000 !important;
+}
+
+.modal-close,
+.experience-modal-close {
+  z-index: 10001 !important;
+}
+
+/* ===== ANIMATIONS - REDUCE MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+@media screen and (max-width: 768px) {
+  /* Spacing utilities */
+  .mt-mobile-0 { margin-top: 0 !important; }
+  .mt-mobile-1 { margin-top: 0.5rem !important; }
+  .mt-mobile-2 { margin-top: 1rem !important; }
+  .mt-mobile-3 { margin-top: 1.5rem !important; }
+  .mt-mobile-4 { margin-top: 2rem !important; }
+  
+  .mb-mobile-0 { margin-bottom: 0 !important; }
+  .mb-mobile-1 { margin-bottom: 0.5rem !important; }
+  .mb-mobile-2 { margin-bottom: 1rem !important; }
+  .mb-mobile-3 { margin-bottom: 1.5rem !important; }
+  .mb-mobile-4 { margin-bottom: 2rem !important; }
+  
+  .p-mobile-0 { padding: 0 !important; }
+  .p-mobile-1 { padding: 0.5rem !important; }
+  .p-mobile-2 { padding: 1rem !important; }
+  .p-mobile-3 { padding: 1.5rem !important; }
+  .p-mobile-4 { padding: 2rem !important; }
+  
+  /* Display utilities */
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+  
+  /* Text utilities */
+  .text-mobile-left { text-align: left !important; }
+  .text-mobile-center { text-align: center !important; }
+  .text-mobile-right { text-align: right !important; }
+  
+  /* Width utilities */
+  .w-mobile-full { width: 100% !important; }
+  .w-mobile-auto { width: auto !important; }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  /* Hide interactive elements */
+  nav,
+  .hamburger-icon,
+  .menu-links,
+  button,
+  .btn,
+  footer {
+    display: none !important;
+  }
+  
+  /* Ensure readability */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+  
+  /* Page breaks */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  img {
+    page-break-inside: avoid;
+  }
+  
+  /* Show URLs for links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* ===== SAFE AREA INSETS (iPhone X+) ===== */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+  
+  header {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  footer {
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* ===== FOCUS VISIBLE (Accessibility) ===== */
+*:focus-visible {
+  outline: 3px solid var(--button-bg);
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  *:focus-visible {
+    outline-width: 2px;
+  }
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+@media screen and (min-width: 769px) {
+  /* Custom scrollbar for desktop */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--button-bg);
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+@media screen and (max-width: 768px) {
+  /* Reduce animations on mobile */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* GPU acceleration for transforms */
+  .modal,
+  .experience-modal,
+  .hamburger-icon,
   .menu-links {
-    border-radius: 0.8rem;
-  }
-  
-  .menu-links a {
-    font-size: 0.95rem;
-    padding: 0.7rem 1.2rem;
-  }
-  
-  .theme-toggle-mobile {
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  footer {
-    padding: 1.2rem 0.8rem 1.2rem;
-  }
-  
-  footer .nav-links-container {
-    margin-bottom: 1rem;
-  }
-  
-  footer .nav-links {
-    font-size: 0.75rem;
-    gap: 0.4rem;
-  }
-  
-  footer .nav-links a {
-    padding: 0.3rem 0.5rem;
-  }
-  
-  .social-links {
-    gap: 0.8rem;
-    margin: 1rem 0;
-  }
-  
-  .social-links a {
-    width: 38px;
-    height: 38px;
-    font-size: 1.4rem;
-  }
-  
-  footer p {
-    font-size: 0.75rem;
-    margin-top: 0.8rem;
+    will-change: transform;
+    transform: translateZ(0);
   }
 }
 
-/* ===== VERY SMALL SCREENS (280px and below) ===== */
-@media screen and (max-width: 280px) {
-  section {
-    margin: 0 0.5rem;
-  }
-  
-  .title {
-    font-size: 1.2rem;
-  }
-  
-  .section__text__p1 {
-    font-size: 0.8rem;
-  }
-  
-  nav {
-    padding: 0 0.6rem;
-  }
-  
-  .logo {
-    font-size: 1rem;
+/* ===== DARK MODE SAFE ===== */
+@media (prefers-color-scheme: dark) {
+  /* Ensure text is readable in dark mode */
+  body {
+    background-color: var(--bg-primary, #1a1a1a);
+    color: var(--text-primary, #ffffff);
   }
 }
